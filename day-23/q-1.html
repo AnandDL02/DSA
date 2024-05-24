@@ -1,0 +1,24 @@
+<!-- 1. Find average of rating . -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let AMAZON=[
+        {name:"spekers",price:5400,rating:4},
+        {name:"headphone",price:3000,rating:3},
+        {name:"palystation",price:20000,rating:5},
+]
+    let sum=0
+    for(let i=0; i <AMAZON.length;i++){
+       sum+= AMAZON[i].rating
+    }
+    console.log(Math.floor(sum/AMAZON.length))
+</script>

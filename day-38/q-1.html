@@ -1,0 +1,67 @@
+<!-- **Question:**
+
+**Task 1: Create 2 Sliders**
+
+Using HTML, CSS, and JavaScript, create an automatic image slider. The slider should display at least five images and automatically transition to the next image every 3 seconds.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    img{
+        width: 100%;
+        height: 400px;
+        /* object-fit: cover; */
+        display: none;
+    }
+    h1{
+        width: 100%;
+        height:80px;
+        background-color: black;
+        color: greenyellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform:capitalize;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        
+
+    
+    }
+</style>
+
+</head>
+<body> 
+        <h1>js slider</h1>
+       <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200114192751/How-to-Learn-Programming.png" alt=""> 
+       <img src="https://prepbytes-misc-images.s3.ap-south-1.amazonaws.com/assets/1689742162577-Topic%20%2813%29.jpg" alt=""> 
+       <img src="https://d2o2utebsixu4k.cloudfront.net/media/images/blogs/share_image/e7063cfa-e9a3-45ec-916c-f879e2b48b81.png" alt=""> 
+      
+      
+</body>
+</html>
+<script>
+    let sliderimg = document.querySelectorAll("img")
+    let index = 0;
+
+    function slide(index){
+        for(i=0; i<sliderimg.length; i++){
+            sliderimg[i].style.display="none"
+
+        }
+        sliderimg[index].style.display="block"
+    }
+    function slider(){
+        setInterval(()=>{
+            slide(index)
+            index++
+            if(index >= sliderimg.length){
+                index = 0
+            }
+        },1000)
+    }
+    slider()
+</script>

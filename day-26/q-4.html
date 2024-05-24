@@ -1,0 +1,118 @@
+<!-- Mini Calculator
+Create a mini calculator application, which has following functionalities
+Addition
+Subtraction
+Division
+Multiplication
+Your app should have
+Two input boxes which should take two numbers from the user.
+Four Buttons with following text content
+Add
+Subtract
+Divide
+Multiply
+When user enter 2 and 4 and clicks on multiply button, an alert should come with 8 as ansWhen user enter 8 and 4 and clicks on Divide button,an alert should come with 2 as ans
+
+Untitled drawing
+Google Drawings
+Class comments
+Your work
+Assigned
+Private comments -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <center style="margin-top: 150px;">
+            <input id="first" type="text">
+            <input id="second" type="text">
+        </center>
+        <center style="margin-top: 50px;">
+        <button onclick="add()">add</button>
+        <button one>Subtract</button>
+        <button id="multiply">multiply</button>
+        <button id="Divide">Divide</button>
+        <h1 id="ans"></h1>
+        </center>
+</body>
+</html>
+<script>
+    function add(){
+        let a=document.getElementById("first").velue
+        let b=document.getElementById("second").velue
+        let sum= +a + +b
+        let c=document.getElementById("ans").innerHTML= "sum is" + sum     
+
+    }
+</script> -->
+<!-- Mini Calculator -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+
+<body>
+    <center>
+        <input type="text" id="one">
+        <input type="text" id="two"><br><br>
+        <button onclick="add()">ADD</button>
+        <button onclick="sub()">SUBSTRACTION</button>
+        <button onclick="mul()">MULTIPLY</button>
+        <button onclick="div()">DIUVISION</button><br><br>
+       
+        <h1 id="ans"></h1>
+    </center>
+</body>
+</html>
+<script>
+    
+    function add(){
+        let a = document.getElementById("one").value
+        let b = document.getElementById("two").value
+        let sum = +a + +b;
+     let c = document.getElementById("ans").innerHTML= "sum is :-" + sum
+    }
+
+    function sub(){
+        let a = document.getElementById("one").value
+        let b = document.getElementById("two").value
+        if(a>b){
+        let c = document.getElementById("ans").innerHTML= "first value is small,enter valid value"
+        }else{
+            let sub = +a - +b;
+     let c = document.getElementById("ans").innerHTML= "substraction is :-" + sub
+        }
+       
+    }
+
+    function mul(){
+        let a = document.getElementById("one").value
+        let b = document.getElementById("two").value
+        let mul = +a * +b;
+     let c = document.getElementById("ans").innerHTML= "multiplication is :-" + mul
+    }
+
+    function div(){
+        let a = document.getElementById("one").value
+        let b = document.getElementById("two").value
+        if(a>b){
+        
+     let c = document.getElementById("ans").innerHTML= "Enter valid number,your first num is not divisible by second number,first num is small" 
+        }
+        else{
+            let div = +a / +b;
+     let c = document.getElementById("ans").innerHTML= "division is :-" + div
+        }
+        
+    }
+
+</script>

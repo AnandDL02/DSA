@@ -1,0 +1,91 @@
+<!-- Find a suitable website create a login, sign up page and home page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           
+        }
+        #login{
+            width: 30%;
+            height: 300px;
+            /* border: 1px solid; */
+            background-color:rgba(144, 238, 144, 0.684);
+            border-radius: 20px;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 100px;
+        }
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: underline;
+        }
+        #btn-1{
+            width: 200px;
+            height: 30px;
+            font-size: 13px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 700;
+            background-color: black;
+            color:white;
+            border-radius:10px;
+            border: none;
+
+        }
+        input{
+            width:200px;
+            height:20px;
+            border: none;
+            border-radius:2px;
+           
+        }
+    </style>
+        
+</head>
+<body>
+        <center>
+           
+            <form id="login">
+                <h1>LOGIN</h1>
+                <div class="div-1">
+            <label for=""> EMAIL</label>
+            <input type="email" id="email">
+            <br><br><br>
+
+            <label for="">PASSWORD</label>
+            <input type="password" id="password">
+            <br><br><br>
+
+            <button id="btn-1" type="submit">SUBMIT</button>
+        </div>
+        </form>
+        </center>
+</body>
+</html>
+<script>
+    let login=document.getElementById("login")
+    login.addEventListener("submit",function(event){
+
+        let email=document.getElementById("email").value
+        let password=document.getElementById("password").value
+
+        let store= JSON.parse(localStorage.getItem("user")) ||[]
+        let login1=store.find(user => user.email===login1.email && user.password===login1.password)
+        
+        if(login1){
+            alert("login successful")
+        }
+        else{
+            alert("login failed")
+        }
+    })
+
+</script>

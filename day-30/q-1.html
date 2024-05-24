@@ -1,0 +1,59 @@
+<!-- **Part 1: Registration Form**
+
+Create a registration form with the following fields and validation checks using JavaScript:
+
+1. **Name:**
+2. **Email:**
+ 3. **Phone Number:**
+4. **Password and Confirm Password:** -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center> 
+    <form action="" id="sing up"></form>
+    <label for="">name:</label>
+    <input type="text" id="nm">
+    <br><br><br>
+    <label for="">email:</label>
+    <input type="text" id="em">
+    <br><br><br>
+    <label for="">phone:</label>
+    <input type="text" id="pn">
+    <br><br><br>
+    <label for="">Password:</label>
+    <input type="text" id="pa">
+    <br><br><br>
+    <input type="submit">
+    <br><br><br>
+    <span id="err"></span>
+    <br><br>
+    </center>
+
+</body>
+</html>
+<script>
+    document.getElementById("singup").onsubmit=function(event){
+        try{
+            let name=document.getElementById("name").value
+            let email=document.getElementById("email").value
+            let phone=document.getElementById("phone").value
+            let password=document.getElementById("password").value
+
+            if(name===""|| /\d/.test(name)){
+                throw new Error("invalid name")
+            }
+            if(/\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+){
+
+            }
+        }catch{
+            document.getElementById("err").innerHTML=e.message
+        }
+    }
+</script>
+

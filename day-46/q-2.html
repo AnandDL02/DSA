@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: black;
+      
+    }
+    #main{
+        height:auto;
+        width: 100%;
+       display: flex;
+       flex-wrap:wrap;
+       justify-content:space-around;
+     
+    }
+    #img{
+      width:200px;
+      height: 200px;
+
+    }
+    #div-1{
+        width:40%;
+        height: 300px;
+        border: 1px solid grey;
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+        flex-direction: column;
+        margin: 30px;
+       
+    }
+    #text{
+        color:white;
+        font-size:15px;
+        display: flex;
+        justify-content:center;
+        text-align: center;
+    }
+
+</style>
+<body>
+    <div id="main"></div>
+
+    <img src="" alt="" id="pic">
+
+    
+</body>
+</html>
+<script>
+    fetch("https://api.sampleapis.com/cartoons/cartoons2D")
+.then(function(res){
+    return res.json();
+})
+
+.then(function(json){
+    console.log(json)
+    cart(json);
+});
+
+function cart(json){
+json.map((el)=>{
+    let div=document.createElement("div");   
+    div.setAttribute("id","div-1")
+
+    let creator=document.createElement("h6");
+    creator.innerHTML=el.creator;
+
+    let image=document.createElement("img");
+    image.setAttribute("id","img")
+    image.setAttribute("src",el.image,)
+     
+
+    let title=document.createElement("p");
+    title.innerHTML=el.title;
+    title.setAttribute("id","text")
+
+
+ let rating=document.createElement("h5");
+   rating.innerHTML=el.rating;
+
+    let description =document.createElement("h5");
+    description.innerHTML=el.description;
+
+
+   
+
+
+    div.append(image,creator,title,rating)
+
+    document.getElementById("main").append(div);
+})
+}
+</script>

@@ -1,0 +1,39 @@
+<!-- **Question:**
+
+Create a function `counter` that returns another function. The returned function, when invoked, should increment a counter variable in the outer function's scope by 1. The outer function (`counter`) should return the current value of the counter variable.
+
+**Example:**
+
+```javascript
+
+incrementCounter(); // Output: 1
+incrementCounter(); // Output: 2
+incrementCounter(); // Output: 3
+``` -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var counter=0;
+    function outer(){
+        function iner(){
+            counter++;
+            console.log(counter);
+        }  
+       iner()
+    }
+    outer()
+    outer()
+    outer()
+</script>

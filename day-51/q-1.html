@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+           
+        }
+        #main{
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #value{
+            width: 30%;
+            height: 40px;
+            border:2px double black;
+
+        }
+        #sum{
+            width: 10%;
+            height: 40px;
+            border:2px double black;
+            background-color:burlywood;
+            font-weight: bold;
+        }
+        .div-1{
+            width:40%;
+            height:300px;
+            text-transform: capitalize;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        
+
+    </style>
+</head>
+<body>
+    <form action="" id="main">
+        <input type="text" id="value">
+        <input type="submit" id="sum">
+
+    </form>
+   <center>
+    <div class="div-1">
+    <img src="https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952gnyy2bqlv0x2i47pd3oppgt5x13blnga11s156e9&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="" id="load">
+    <h1 id="message"></h1>
+    </div>
+   </center>
+
+</body>
+</html>
+<script>
+    document.getElementById("load").style.display="none"
+    document.getElementById("main").addEventListener("submit",function(){
+
+        event.preventDefault()
+
+        let price=document.getElementById("value").value
+        let promise=new Promise((resolve, reject) => {
+            
+            setTimeout(()=>{
+                if(price >=1 && price <= 500){
+                    resolve("success")
+                } else{
+                    reject("error")
+                }
+            },1000)
+            
+        })
+
+        document.getElementById("load").style.display="block"
+        promise.then(function(resolve){
+            document.getElementById("message").innerHTML=resolve
+            document.getElementById("load").style.display="none"
+        })
+        
+        .catch(function(reject){
+            document.getElementById("message").innerHTML=reject
+            document.getElementById("load").style.display="none"
+        })
+        
+    })
+    
+
+</script>

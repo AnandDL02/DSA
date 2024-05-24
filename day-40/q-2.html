@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           
+        }
+        #signup{
+            width: 40%;
+            height: 400px;
+            /* border: 1px solid; */
+            background-color:rgba(144, 238, 144, 0.684);
+            border-radius: 20px;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 100px;
+        }
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: underline;
+        }
+        #btn-1{
+            width: 200px;
+            height: 30px;
+            font-size: 13px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 700;
+            background-color: black;
+            color:white;
+            border-radius:10px;
+            border: none;
+
+        }
+        input{
+            width:200px;
+            height:20px;
+            border: none;
+            border-radius:2px;
+           
+        }
+    </style>
+</head>
+<body>
+    
+        <center>
+            <form id="signup">
+                <h1>SIGNUP PAGE</h1>
+                <div class="div-1">
+                <label for="">FIRST NAME</label>
+                <input type="text"id="name">
+                <br></br><br>
+
+                <label for="">LAST NAME</label>
+                <input type="text"id="lastname">
+                <br></br><br>
+
+                <label for="">ENTER EMAIL</label>
+                <input type="text"id="email">
+                <br></br><br>
+
+                <label for=""> PASSWORD</label>
+                <input type="text"id="password">
+                <br></br><br>
+
+                <button id="btn-1" type="submit">SUBMIT</button>
+
+            </div>
+            </form>
+        </center>     
+</body>
+</html>
+<script>
+    let signup = document.getElementById("signup")
+    signup.addEventListener("submit",function(event){
+
+        event.preventDefault()
+
+        let email= document.getElementById("email").value
+        let password= document.getElementById("password").value
+        let name= document.getElementById("name").value
+        let lastname= document.getElementById("lastname").value
+
+
+        let store= JSON.parse(localStorage.getItem("user")) ||[]
+    
+        store.push({email,password,name,lastname})
+        localStorage.setItem("user",JSON.stringify(store))
+
+    })
+
+</script>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: chartreuse;
+
+        }
+        h1{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .div-1{
+           
+            /* border: 1px solid; */
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            flex-direction: column;
+        }
+        #stat{
+            width: 150px;
+            height: 40px;
+
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            margin-top: 10px;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <h1>COVID-19 CASES STAT WISE</h1>
+    
+    <div class="div-1">
+    <input type="text" id="stat">
+    <button onclick="corona()">search</button>
+    <div id="main"></div>
+</div>
+</body>
+</html>
+<script>
+    function corona(){
+       let key= fetch(`https://data.covid19india.org/v4/min/data.min.json`)
+        .then(function(res){
+            return res.json()
+        })
+        .then(function(json){
+            console.log(json)
+            
+            covid(json)
+           
+        })
+
+    } 
+ 
+    function covid(json){
+        
+        document.getElementById("main").innerHTML=""
+        let data=document.createElement("div")
+        data.setAttribute("id","div-4")
+
+        let c=document.getElementById("stat").value
+        let state=document.createElement("h1")
+        state.innerHTML="tested = " +json[c].delta7.tested
+
+        let confirmed=document.createElement("h1")
+        confirmed.innerHTML="confirmed = " +json[c].delta7.confirmed
+        
+        let recovered=document.createElement("h1")
+        recovered.innerHTML="recovered = " +json[c].delta7.recovered
+       
+        let vaccinated1=document.createElement("h1")
+        vaccinated1.innerHTML="vaccinated1 = " +json[c].delta7.vaccinated1
+       
+        let vaccinated2=document.createElement("h1")
+        vaccinated2.innerHTML="vaccinated2 = " +json[c].delta7.vaccinated2
+
+      
+
+        data.append(state,confirmed,recovered,vaccinated1,vaccinated2)
+
+        document.getElementById("main").append(data)
+    }
+</script>

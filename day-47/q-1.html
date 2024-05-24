@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: black;
+            color: white;
+            
+        }
+        #anand{
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content:center;
+            flex-direction: column;
+            align-items: center;
+           
+
+        }
+        #searchbar{
+        color: white;
+        border: 1px solid white;
+        margin-left:40%;
+        margin-top: 100px;
+        }
+        #a1{
+            color: white;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="searchbar">
+    <button onclick="api()" id="a1">search</button>
+    <div class="div" id="main"></div>
+</body>
+</html>
+<script>
+    function api(){
+        let key = "b48a3cc0"
+        let movie= document.getElementById("searchbar").value
+        fetch(`http://www.omdbapi.com/?apikey=${key}&t=${movie}`)
+        .then(function(res){
+            return res.json()
+        })
+        .then(function(json){
+            console.log(json)
+            displayMoveidetails(json)
+        })
+        
+    }
+
+    function displayMoveidetails(json){
+       document.getElementById("main").innerHTML=""
+
+       
+       let div=document.createElement("div")
+       div.setAttribute("id","anand")
+
+       
+        let image=document.createElement("img")
+        image.setAttribute("id","pic")
+        image.setAttribute("src",json.Poster)
+
+        let title=document.createElement("h1")
+        title.innerHTML=json.Title
+
+        let Director=document.createElement("h2")
+        Director.innerHTML=json.Director
+
+        let Year=document.createElement("h3")
+        Year.innerHTML=json.Year
+
+        div.append(image,title,Director,Year)
+        document.getElementById("main").append(div)
+    }
+</script>

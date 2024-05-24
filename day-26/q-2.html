@@ -1,0 +1,43 @@
+<!-- On clicking Change Green all the elements with the class green should change to green
+On clicking Change Blue all the elements with the class blue should change to blue
+On clicking Change Red all the elements with the class red should change to red -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+      <h1 class="green">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda ad ut atque ex impedit eligendi dolor. Vitae asperiores, eligendi aliquam alias atque exercitationem, dolorem eius non officiis minima ad quisquam!</h1>
+      
+      <h1 class="blue">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda ad ut atque ex impedit eligendi dolor. Vitae asperiores, eligendi aliquam alias atque exercitationem, dolorem eius non officiis minima ad quisquam!</h1>
+      
+      <h1 class="red">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda ad ut atque ex impedit eligendi dolor. Vitae asperiores, eligendi aliquam alias atque exercitationem, dolorem eius non officiis minima ad quisquam!</h1>
+      
+
+      <button onclick="one()">green</button>
+    </center>
+</body>
+</html>
+<script>
+        function one(){
+            let a=document.querySelectorAll(".green")
+            let b=document.querySelectorAll(".blue")
+            let c=document.querySelectorAll(".red")
+                for(let i=0; i<a.length; i++){
+                    a[i].style.color="green"
+                }
+
+                for(let i=0; i<a.length; i++){
+                    b[i].style.color="blue"
+                }
+                for(let i=0; i<c.length; i++){
+                    c[i].style.color="red"
+                }
+            
+        }
+
+</script>

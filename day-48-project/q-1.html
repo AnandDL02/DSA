@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+           
+            
+        }
+        body{
+            height: 100vh;
+            background-image: url(https://wallpapercave.com/wp/wp11963447.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+        .div-1{
+            height: 300px;
+            display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+        .w{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="div-1">
+        <input type="text" id="search">
+        <button onclick="wather()">search</button>
+    </div>
+    <div id="main"></div>
+</body>
+</html>
+<script>
+    function wather(){
+    let key ="b7cc11c67822e942f98427a05e4e85d7"    
+    let city = document.getElementById("search").value
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+    .then(function(res){
+        return res.json()
+    })
+       .then(function(json){
+        console.log(json)
+        atmospher(json)
+       })
+    }
+    
+    function atmospher(json){
+        document.getElementById("main").innerHTML=""
+
+       let  div=document.createElement("div")
+        div.setAttribute("class","w")
+
+       let name=document.createElement("h1")
+       name.innerHTML= "min temp = "+ json.main.temp_min
+
+       let max=document.createElement("h1")
+       max.innerHTML= "max temp = "+ json.main.temp_max
+
+       let sunset=document.createElement("h1")
+       sunset.innerHTML= "sunset = "+ json.sys.sunset
+
+       let sunshine=document.createElement("h1")
+       sunshine.innerHTML="sunshine = "+ json.sys.sunrise
+
+       let wind=document.createElement("h1")
+       wind.innerHTML="wind speed = "+ json.wind.speed
+
+       let clouds=document.createElement("h1")
+       clouds.innerHTML="clouds = "+ json.clouds.all
+
+       div.append(name,max ,sunset,sunshine,wind,clouds)
+       document.getElementById("main").append(div)
+    }
+</script>
