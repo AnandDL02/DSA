@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>ENTER A LETER</label>
+    <input type="text" id="day">
+    <br><br><br>
+    <h1 id="ans"></h1>
+</body>
+</html>
+<script>
+    
+    let day = document.getElementById("day").value
+
+    switch(parseInt(day)){
+       
+        case 1:document.getElementById("ans").innerHTML="today is sunday";
+        break;
+        case 2:document.getElementById("ans").innerHTML="today is monday";
+        break;
+        case 3:document.getElementById("ans").innerHTML="today is tuesday";
+        break;
+        case 4:document.getElementById("ans").innerHTML="today is wednesday";
+        break;
+        case 5:document.getElementById("ans").innerHTML="today is thursday";
+        break;
+        case 6:document.getElementById("ans").innerHTML="today is friday";
+        break;
+        case 7:document.getElementById("ans").innerHTML="today is saturday";
+        break;
+        default:document.getElementById("ans").innerHTML="invalid input";
+    }
+
+</script>

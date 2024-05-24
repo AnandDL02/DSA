@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+</head>
+<body>
+    <center>
+        <h1>Currency Converter</h1>
+        <label for="amount">Amount in USD:</label>
+        <input type="text" id="amount">
+        <h1 id="result"></h1>
+      
+    </center>
+  
+</body>
+</html>
+<script>
+    let a=document.getElementById("amount").value
+    if(a==""){
+        document.getElementById("result").innerHTML = "enter amount first ....!"
+    }else{
+        document.getElementById("result").innerHTML = "your converted usd in ind is :- " + a*80
+    }
+</script>
